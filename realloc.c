@@ -30,6 +30,22 @@ void ffree(char **pp)
 		free(*pp++);
 	free(a);
 }
+/**
+ * ffree - frees a string of strings
+ * @pp: string of strings
+ */
+void ffree(char **pp)
+{
+        if (!pp)
+                return;
+
+        char **a = pp;
+
+        while (*pp)
+                free(*pp++);
+
+        free(a);
+}
 
 /**
  * _realloc - reallocates a block of memory
@@ -41,22 +57,28 @@ void ffree(char **pp)
  */
 void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 {
-	char *p;
+        char *p;
 
-	if (!ptr)
-		return (malloc(new_size));
-	if (!new_size)
-		return (free(ptr), NULL);
-	if (new_size == old_size)
-		return (ptr);
+        if (!ptr)
+                return (malloc(new_size));
 
-	p = malloc(new_size);
-	if (!p)
-		return (NULL);
+        if (!new_size)
+                return (free(ptr), NULL);
 
-	old_size = old_size < new_size ? old_size : new_size;
-	while (old_size--)
-		p[old_size] = ((char *)ptr)[old_size];
-	free(ptr);
-	return (p);
+        if (new_size == old_size)
+                return (ptr);
+
+        p = malloc(new_size);
+
+        if (!p)
+                return (NULL);
+
+        old_size = old_size < new_size ? old_size : new_size;
+
+        while (old_size--)
+                p[old_size] = ((char *)ptr)[old_size];
+
+        free(ptr);
+        return (p);
 }
+
