@@ -1,8 +1,5 @@
 #include "shell.h"
 
-
-
-
 /**
  * list_len - determines length of linked list
  * @h: pointer to first node
@@ -123,3 +120,4 @@ ssize_t get_node_index(list_t *head, list_t *node)
 	}
 	return (-1);
 }
+

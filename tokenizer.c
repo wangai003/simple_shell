@@ -1,7 +1,5 @@
 #include "shell.h"
 
-
-
 /**
  * **strtow - splits a string into words. Repeat delimiters are ignored
  * @str: the input string
@@ -65,7 +63,7 @@ char **strtow2(char *str, char d)
 		return (NULL);
 	for (i = 0; str[i] != '\0'; i++)
 		if ((str[i] != d && str[i + 1] == d) ||
-		    (str[i] != d && !str[i + 1]) || str[i + 1] == d)
+				    (str[i] != d && !str[i + 1]) || str[i + 1] == d)
 			numwords++;
 	if (numwords == 0)
 		return (NULL);
@@ -94,3 +92,4 @@ char **strtow2(char *str, char d)
 	s[j] = NULL;
 	return (s);
 }
+
