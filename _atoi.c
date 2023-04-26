@@ -17,6 +17,13 @@ int interactive(info_t *info)
  * @delim: the delimeter string
  * Return: 1 if true, 0 if false
  */
+int _isalpha(int c)
+{
+        if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'))
+                return (1);
+        else
+                return (0);
+}
 int is_delim(char c, char *delim)
 {
 	while (*delim)
@@ -31,13 +38,7 @@ int is_delim(char c, char *delim)
  *Return: 1 if c is alphabetic, 0 otherwise
  */
 
-int _isalpha(int c)
-{
-	if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'))
-		return (1);
-	else
-		return (0);
-}
+
 
 /**
  *_atoi - converts a string to an integer
